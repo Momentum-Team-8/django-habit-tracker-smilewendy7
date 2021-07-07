@@ -15,6 +15,7 @@ class Habit(models.Model):
     author = models.ForeignKey(User, on_delete=models.CASCADE,
                                related_name="habits")
     goal = models.IntegerField()
+    
     def __str__(self):
         return self.name
 
@@ -26,6 +27,3 @@ class Record (models.Model):
     performance = models.IntegerField(null=True)
     habit_name = models.ForeignKey(Habit, on_delete=models.CASCADE,
                                related_name="records", null=True)
-
-    def __str__(self):
-        return self.created_date
