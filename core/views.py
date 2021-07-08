@@ -17,9 +17,10 @@ def homepage(request):
 
     return render(request, "habits/home.html")
 
-## habit list
+## habit list --- only the user's habits
 def habit_list(request):
-    habits = Habit.objects.all()
+    user = request.user
+    habits = Habit.objects.filter(author=user)
     return render(request,  "habits/habit_list.html",
                   {"habits": habits})
 
@@ -38,6 +39,18 @@ def add_habit(request):
             habit.save()
             return redirect(to='habit_list')
     return render(request, "habits/add_habit.html", {"form": form})
+
+## delete habit 
+def delete_habit(request, pk):
+    habit = get_object_or_404(request.user.habits, pk=pk)
+    
+    if request.method == 'POST':
+        habit.delete()
+        return redirect(to='habit_list')
+
+    return render(request, "habits/delete_habit.html",
+                  {"habit": habit})
+
 
 
 ## habit details

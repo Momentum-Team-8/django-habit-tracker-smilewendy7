@@ -7,6 +7,8 @@
         <a href="{% url 'show_habit' pk=habit.pk %}">
             {{habit.name}}</a>
     </div>
+
+    <a href={% url 'delete_habit' pk=habit.pk%}> Delete </a>
     {% endfor %}
 </section>
 

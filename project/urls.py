@@ -24,6 +24,10 @@ urlpatterns = [
     path("habits/", habits_views.habit_list, name="habit_list"),
     # add habit
     path('habits/new/', habits_views.add_habit, name='add_habit'),
+    # delete habit 
+    path("habits/<int:pk>/delete/", habits_views.delete_habit,
+        name="delete_habit"),
+    # habit details
     path("habits/<int:pk>", habits_views.show_habit, name='show_habit'),
 
     path('admin/', admin.site.urls),
