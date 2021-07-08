@@ -1,0 +1,38 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  {% block meta %}{% endblock %}
+  <title>{% block title %}Habit Tracker{% endblock %}</title>
+
+</head>
+<body class="sans-serif">
+  <div class="mw8 center ph3 pv4">
+    <div class="pa3 bg-light-green black">
+      <h1 class="ma0"><a class="black no-underline" href="{% url 'homepage' %}">Habit Tracker</a></h1>
+
+      <div class="flex justify-between">
+        {% if user.is_authenticated %}
+        <div class="mr2">
+          Hello, {{ user.username }}!
+          <a href="{% url 'auth_logout' %}">Logout</a>
+        </div>
+        <div class="mr2">
+          <a href="{% url 'add_habit' %}">Add a habit</a>
+        </div>
+        <div class="mr2">
+          <a href="#">Track your records</a>
+        </div>
+        {% endif %}
+      </div>
+
+    </div>
+    {% block content %}
+    {% endblock %}
+  </div>
+
+  {% block scripts %}{% endblock %}
+</body>
+</html>

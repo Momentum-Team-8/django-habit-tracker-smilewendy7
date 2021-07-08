@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="habit-list">
+    {% for habit in habits %}
+    <div>
+        <a href="{% url 'show_habit' pk=habit.pk %}">
+            {{habit.name}}</a>
+    </div>
+    {% endfor %}
+</section>
+
+{% endblock content %}
