@@ -72,3 +72,11 @@ If you want to add charts to your habits, you'll definitely need JavaScript. Che
 1. (Unsatisfactory) Does not store data via models, does not use forms, or does not use GET and POST for views correctly.
 2. (Satisfactory) Has User, Habit, and Record models (or equivalent), uses forms for all data entry, standard use of views and URLs.
 3. (Exemplary) Writes custom functionality in views, uses Django queries to get aggregated values.
+
+
+
+Plans 7/9:
+1) fix the page issue when add multiple records for the same day. 
+2) if the record reaches the goal, show a gree flag or dot next to the record.  [JavaScript]
+3) how to add a line chart on the detail page? 
+4) add a public dashbord for each user with data about their habits and recent statistics .....

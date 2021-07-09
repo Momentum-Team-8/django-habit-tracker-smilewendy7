@@ -6,8 +6,8 @@
   {% csrf_token %}
   <p>Are you sure you want to delete {{ recipe.title }}?</p>
   <p>
-    <button type="submit">Delete it</button>
-    <a href="{% url 'habit_list' %}">Cancel</a>
+    <button class="f5 mr2 dark-gray" type="submit">Delete it</button>
+    <a class="f5 mr2 dark-gray" href="{% url 'habit_list' %}">Cancel</a>
   </p>
 </form>
 

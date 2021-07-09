@@ -3,9 +3,9 @@
 {% block content %}
 <div class="habit-list pl0">
     {% for habit in habits %}
-    <section class="pa2 pt4 mr42 mb2 mt1">
+    <section class="pa0 pt3 mr4 mb1 mt0">
         <div>
-            <a class="f3 dark-gray" href="{% url 'show_habit' pk=habit.pk %}">
+            <a class="f3 dark-gray mr1" href="{% url 'show_habit' pk=habit.pk %}">
                 {{habit.name}}</a>
             <a class=" f5 light-blue" href={% url 'delete_habit' pk=habit.pk%}><i class="far fa-trash-alt"></i></a>
         </div>

@@ -3,22 +3,21 @@
 
 {% block content %}
 
-<a href="{% url 'add_habit_record' pk=habit.pk %}"> + Add a record</a>
-
 <h2>Habit Detail</h2>
 
 <div class="">
   <p class="b mid-gray f4 ml0 mv1">{{ habit.name }}</p>
-  <p class="f5 ml0 mv1">goals: {{ habit.goal  }} per day</p>
+  <p class="f5 ml0 mv1">goals: {{ habit.goal}} {{habit.amount}} per day</p>
   <p class="f7 gray ml0 mv1">created at: {{ habit.created_date}}</p>
   <br>
   <br>
 </div>    
 
 <h3>Records</h3>
+<a class="f5 gray b" href="{% url 'add_habit_record' pk=habit.pk %}"> + Add a record</a>
 <ul class ="">
     {% for record in habit.records.all %}
-      <li class= "ml0 mt2 mid-gray f5 mt" >{{ record.date }} -- {{record.performance}}
+      <li class= "ml0 mt2 mid-gray f5 mt" >{{ record.date }} -- {{record.performance}} {{record.amount}}
         <a class="ml1 f5 light-blue" href="{% url 'edit_record' id=habit.id record_pk=record.pk %}"><i class="fas fa-edit"></i></a>
       </li>
       
