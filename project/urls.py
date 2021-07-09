@@ -36,7 +36,7 @@ urlpatterns = [
         name="add_habit_record",
     ),
      path(
-        "habits/<int:record_pk>/edit_record/",
+        "habits/<int:record_pk>/<int:id>/edit_record/",
         habits_views.edit_record,
         name="edit_record",
     ),

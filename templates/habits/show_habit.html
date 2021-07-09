@@ -19,7 +19,7 @@
 <ol>
     {% for record in habit.records.all %}
       <li>{{ record.date }} -- {{record.performance}}</li>
-      <a href="{% url 'edit_record' record_pk=record.pk %}">Edit</a>
+      <a href="{% url 'edit_record' id=habit.id record_pk=record.pk %}">Edit</a>
     {% endfor %}
 </ol>
 

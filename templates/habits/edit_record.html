@@ -4,7 +4,7 @@
 <h1>Edit Record</h1>
 
 <div>
-  <form action="{% url 'edit_record' record_pk=record.pk %}" method="POST">
+  <form action="{% url 'edit_record' id=habit.id record_pk=habit_record.pk %}" method="POST">
     {% csrf_token %}
     {{ form.as_p }}
     <div>

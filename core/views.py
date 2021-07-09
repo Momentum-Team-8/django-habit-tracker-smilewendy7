@@ -87,7 +87,8 @@ def add_habit_record(request,pk):
 
 ### edit record 
 
-def edit_record(request, record_pk):
+def edit_record(request, record_pk, id):
+    habit= get_object_or_404(request.user.habits, id=id)
     habit_record = get_object_or_404(Record, pk=record_pk)
     if request.method == 'GET':
         form = RecordForm(instance=habit_record)
@@ -95,11 +96,12 @@ def edit_record(request, record_pk):
         form = RecordForm(data=request.POST, instance=habit_record)
         if form.is_valid():
             form.save()
-            return redirect(to='show_habit')
+            return redirect(to='show_habit', pk=habit.id)
 
     return render(request, "habits/edit_record.html", {
         "form": form,
-        "habit_record": habit_record
+        "habit_record": habit_record,
+        "habit": habit
     })
 
 ### delete record 
