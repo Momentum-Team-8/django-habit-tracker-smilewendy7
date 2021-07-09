@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<form action="{% url 'add_habit_record' pk=habit.pk %}" method="POST">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <div>
+    <button type="submit">Add record to {{ habit.name }}</button>
+  </div>
+</form>
+
+{% endblock %}

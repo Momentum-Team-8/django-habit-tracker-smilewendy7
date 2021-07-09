@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Edit Record</h1>
+
+<div>
+  <form action="{% url 'edit_record' record_pk=record.pk %}" method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <div>
+      <button type="submit">Update Record</button>
+    </div>
+  </form>
+</div>
+{% endblock %}

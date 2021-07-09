@@ -35,9 +35,9 @@ class Record (models.Model):
             UniqueConstraint(fields=["habit_name", "date"], name="unique_record")
         ]
 
-    
+# habit_name_id is different for different user; user email?? 
     def __str__(self):
-        return f"{self.date} {self.habit_name}"
+        return f"{self.date} {self.habit_name} {self.habit_name_id}"
 
 
 

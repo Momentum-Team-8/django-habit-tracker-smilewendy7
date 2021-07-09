@@ -1,6 +1,9 @@
 {% extends "base.html" %}
+{% load static %}
 
 {% block content %}
+
+<a href="{% url 'add_habit_record' pk=habit.pk %}"> + Add a record</a>
 
 <h2>Habit Detail</h2>
 
@@ -10,6 +13,15 @@
   <p>{{ habit.created_date}}</p>
   <br>
   <br>
-</div>        
+</div>    
+
+<h3>Records</h3>
+<ol>
+    {% for record in habit.records.all %}
+      <li>{{ record.date }} -- {{record.performance}}</li>
+      <a href="{% url 'edit_record' record_pk=record.pk %}">Edit</a>
+    {% endfor %}
+</ol>
+
 
 {% endblock content %}

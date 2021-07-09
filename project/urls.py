@@ -29,9 +29,20 @@ urlpatterns = [
         name="delete_habit"),
     # habit details
     path("habits/<int:pk>", habits_views.show_habit, name='show_habit'),
+    # add habit record
+    path(
+        "habits/<int:pk>/add_habit_record/",
+        habits_views.add_habit_record,
+        name="add_habit_record",
+    ),
+     path(
+        "habits/<int:record_pk>/edit_record/",
+        habits_views.edit_record,
+        name="edit_record",
+    ),
 
     path('admin/', admin.site.urls),
-    path("accounts/", include("registration.backends.default.urls")),
+    path("accounts/", include("registration.backends.simple.urls")),
 ]
 
 if settings.DEBUG:
