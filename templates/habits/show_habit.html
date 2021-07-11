@@ -29,6 +29,10 @@
         {% for record in habit.records.all %}
           <li class= "ml0 mt2 mid-gray f5 mt" >{{ record.date }} -- {{record.performance}} {{record.amount}}
             <a class="ml1 f5 light-blue" href="{% url 'edit_record' id=habit.id record_pk=record.pk %}"><i class="fas fa-edit"></i></a>
+            {% if record.performance >= habit.goal %}
+            <i class="ml2 green fas fa-flag-checkered"></i>
+            {% endif %}
+
           </li>
           
         {% endfor %}
