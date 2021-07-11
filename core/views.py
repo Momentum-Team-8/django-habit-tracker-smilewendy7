@@ -1,5 +1,7 @@
 from core.models import Habit, Record
 from django.shortcuts import redirect, render, get_object_or_404
+
+
 from project.forms import HabitForm, RecordForm
 
 # Create your views here.
@@ -56,9 +58,24 @@ def delete_habit(request, pk):
 ## habit details
 def show_habit(request, pk):
     habit = get_object_or_404(Habit, pk=pk)
+    ## label: date
+    labels = []
+
+    ###data: performace
+    data = []
+
+    amount = []
+
+    queryset = Record.objects.filter(habit_name_id=habit.id).order_by("date")
+    for record in queryset:
+        labels.append(str(record.date))
+        data.append(record.performance)
+
     return render(request, "habits/show_habit.html",
         {
             "habit": habit, "record_form": RecordForm(),
+            'labels': labels,
+            'data': data,
         },
     
     )
@@ -103,5 +120,3 @@ def edit_record(request, record_pk, id):
         "habit_record": habit_record,
         "habit": habit
     })
-
-### delete record 

@@ -28,7 +28,9 @@ urlpatterns = [
     path("habits/<int:pk>/delete/", habits_views.delete_habit,
         name="delete_habit"),
     # habit details
-    path("habits/<int:pk>", habits_views.show_habit, name='show_habit'),
+    path("habits/<int:pk>", 
+    habits_views.show_habit, 
+    name='show_habit'),
     # add habit record
     path(
         "habits/<int:pk>/add_habit_record/",
@@ -40,7 +42,7 @@ urlpatterns = [
         habits_views.edit_record,
         name="edit_record",
     ),
-
+    
     path('admin/', admin.site.urls),
     path("accounts/", include("registration.backends.simple.urls")),
 ]
