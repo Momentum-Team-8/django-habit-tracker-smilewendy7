@@ -77,8 +77,5 @@ If you want to add charts to your habits, you'll definitely need JavaScript. Che
 
 Plans 7/9:
 1) fix the page issue when add multiple records for the same day. 
-2) if the record reaches the goal, show a gree flag or dot next to the record.  [JavaScript?]
 3) home page bar lines 
-4) chart on the detail page ... 
-5) how to add a line chart on the detail page? 
 6) add a public dashbord for each user with data about their habits and recent statistics .....
