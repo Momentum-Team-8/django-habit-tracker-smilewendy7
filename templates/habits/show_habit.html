@@ -14,7 +14,14 @@
 <h2>Habit Detail</h2>
 
 <div class="">
+  <div class="flex">
   <p class="b mid-gray f4 ml0 mv1">{{ habit.name }}</p>
+  <!-- # of records you have  -->
+    <div class="flex">
+    <i class="ml2 pt2 yellow fas fa-fire"></i><p class="ml1 f7 mb3">{{ queryset.count }} day</p>
+    </div>
+  </div>
+
   <p class="f5 ml0 mv1">goals: {{ habit.goal}} {{habit.amount}} per day</p>
   <p class="f7 gray ml0 mv1">created at: {{ habit.created_date}}</p>
   <br>
@@ -23,7 +30,10 @@
 
 <section class="flex">
   <div>
-    <h3>Records</h3>
+    <div class="flex">
+      <h3>Records</h3>
+    </div>
+    
     <a class="f5 gray b" href="{% url 'add_habit_record' pk=habit.pk %}"> + Add a record</a>
     <ul class ="">
         {% for record in habit.records.all %}
@@ -37,6 +47,8 @@
           
         {% endfor %}
     </ul>
+    
+    
 </div>
 
 <div class="ml6">

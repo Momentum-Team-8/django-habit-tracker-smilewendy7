@@ -79,3 +79,7 @@ Plans 7/9:
 1) fix the page issue when add multiple records for the same day. 
 3) home page bar lines 
 6) add a public dashbord for each user with data about their habits and recent statistics .....
+
+7) bublle chart ----- show different habits 
+
+8) average performance, your performance .... you bit xx % of people ... 

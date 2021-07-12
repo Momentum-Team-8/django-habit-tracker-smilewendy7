@@ -1,5 +1,6 @@
 from core.models import Habit, Record
 from django.shortcuts import redirect, render, get_object_or_404
+from django.db.models import Count
 
 
 from project.forms import HabitForm, RecordForm
@@ -24,7 +25,8 @@ def habit_list(request):
     user = request.user
     habits = Habit.objects.filter(author=user)
     return render(request,  "habits/habit_list.html",
-                  {"habits": habits})
+                  {"habits": habits,
+                  })
 
 
 ## add habit 
@@ -64,18 +66,19 @@ def show_habit(request, pk):
     ###data: performace
     data = []
 
-    amount = []
 
     queryset = Record.objects.filter(habit_name_id=habit.id).order_by("date")
     for record in queryset:
         labels.append(str(record.date))
         data.append(record.performance)
 
+    
     return render(request, "habits/show_habit.html",
         {
             "habit": habit, "record_form": RecordForm(),
             'labels': labels,
             'data': data,
+            'queryset': queryset,
         },
     
     )
